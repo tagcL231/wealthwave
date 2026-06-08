@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7226557743244504"
+     crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WealthWave - Turn Your Money Into Lasting Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --navy2: #111827;
+    --gold: #f5a623;
+    --teal: #00d4aa;
+    --white: #ffffff;
+    --gray: #8892a4;
+    --card-bg: #151d2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 8px 0;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .ticker-inner {
+    display: flex;
+    gap: 60px;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-item { display: flex; align-items: center; gap: 6px; }
+  .ticker-up { color: #006400; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+  }
+  .logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .enroll-btn {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .enroll-btn:hover { opacity: 0.85; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 5% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--gold);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero h1 .teal { color: var(--teal); }
+  .hero p {
+    color: var(--gray);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-secondary {
+    background: rgba(255,255,255,0.07);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+  /* STATS */
+  .stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .stat-label { color: var(--gray); font-size: 13px; margin-top: 2px; }
+
+  /* HERO IMAGE SIDE */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 28px;
+    width: 100%;
+    max-width: 360px;
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .chart-bar-wrap { display: flex; flex-direction: column; gap: 10px; }
+  .chart-bar-item { display: flex; align-items: center; gap: 12px; }
+  .chart-bar-label { font-size: 12px; color: var(--gray); width: 60px; }
+  .chart-bar-bg { flex: 1; background: rgba(255,255,255,0.06); border-radius: 50px; height: 8px; }
+  .chart-bar-fill { height: 8px; border-radius: 50px; }
+  .chart-bar-val { font-size: 12px; font-weight: 700; width: 40px; text-align: right; }
+  .floating-tag {
+    position: absolute;
+    background: var(--teal);
+    color: var(--navy);
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    top: -16px;
+    right: -16px;
+    box-shadow: 0 8px 24px rgba(0,212,170,0.3);
+  }
+
+  /* FEATURES */
+  .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .section-sub { color: var(--gray); text-align: center; font-size: 16px; margin-bottom: 50px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    padding: 28px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(245,166,35,0.3); }
+  .card-icon {
+    width: 48px; height: 48px;
+    background: rgba(245,166,35,0.12);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .card p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  /* ARTICLES */
+  .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .article-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  .article-card:hover { transform: translateY(-4px); }
+  .article-img {
+    height: 160px;
+    background: linear-gradient(135deg, #1a2540, #0d1829);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+  }
+  .article-body { padding: 20px; }
+  .article-tag {
+    background: rgba(245,166,35,0.15);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .article-body h3 { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .article-body p { color: var(--gray); font-size: 13px; line-height: 1.5; }
+  .article-meta { display: flex; justify-content: space-between; margin-top: 14px; color: var(--gray); font-size: 12px; }
+
+  /* CTA */
+  .cta-section {
+    margin: 0 5% 80px;
+    background: linear-gradient(135deg, #1a2540 0%, #0d1829 100%);
+    border: 1px solid rgba(245,166,35,0.2);
+    border-radius: 28px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(245,166,35,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 14px;
+  }
+  .cta-section p { color: var(--gray); font-size: 16px; margin-bottom: 32px; }
+  .email-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .email-input {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 300px;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .email-input::placeholder { color: var(--gray); }
+  .email-input:focus { border-color: var(--gold); }
+  .btn-cta {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+  }
+  .footer-logo span { color: var(--teal); }
+  footer p { color: var(--gray); font-size: 13px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--gray); text-decoration: none; font-size: 13px; }
+  .footer-links a:hover { color: var(--white); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 5%; }
+    .hero h1 { font-size: 38px; }
+    .hero-visual { display: none; }
+    .cards-grid, .articles-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 40px 24px; }
+    .cta-section h2 { font-size: 28px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">▲ <span class="ticker-up">S&P 500</span> 5,284 +1.2%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Bitcoin</span> $67,420 +3.4%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">NASDAQ</span> 18,340 +0.9%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Gold</span> $2,341 +0.5%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Ethereum</span> $3,820 +2.1%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">S&P 500</span> 5,284 +1.2%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Bitcoin</span> $67,420 +3.4%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">NASDAQ</span> 18,340 +0.9%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Gold</span> $2,341 +0.5%</span>
+    <span class="ticker-item">▲ <span class="ticker-up">Ethereum</span> $3,820 +2.1%</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Wealth<span>Wave</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Articles</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Tools</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <a href="#enroll" class="enroll-btn">🎓 Enroll Now</a>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="badge">🏆 #1 Finance Blog of 2026</div>
+    <h1>Turn Your <span class="gold">Money</span> Into <span class="teal">Lasting Wealth</span></h1>
+    <p>Expert guides on investing, passive income, and financial freedom. Real strategies that work for real people — not just Wall Street.</p>
+    <div class="hero-btns">
+      <a href="#articles" class="btn-primary">Read Free Articles →</a>
+      <a href="#courses" class="btn-secondary">View Courses</a>
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">280K+</div>
+        <div class="stat-label">Monthly Readers</div>
+      </div>
+      <div>
+        <div class="stat-num">$5.1M</div>
+        <div class="stat-label">Reader Wealth Built</div>
+      </div>
+      <div>
+        <div class="stat-num">450+</div>
+        <div class="stat-label">Free Articles</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="floating-tag">+24.5% this year</div>
+      <div class="hero-card-title">Portfolio Growth</div>
+      <div class="chart-bar-wrap">
+        <div class="chart-bar-item">
+          <span class="chart-bar-label">Stocks</span>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:82%;background:var(--gold)"></div></div>
+          <span class="chart-bar-val" style="color:var(--gold)">82%</span>
+        </div>
+        <div class="chart-bar-item">
+          <span class="chart-bar-label">Crypto</span>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:60%;background:var(--teal)"></div></div>
+          <span class="chart-bar-val" style="color:var(--teal)">60%</span>
+        </div>
+        <div class="chart-bar-item">
+          <span class="chart-bar-label">Real Estate</span>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:45%;background:#a78bfa"></div></div>
+          <span class="chart-bar-val" style="color:#a78bfa">45%</span>
+        </div>
+        <div class="chart-bar-item">
+          <span class="chart-bar-label">Bonds</span>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:28%;background:#60a5fa"></div></div>
+          <span class="chart-bar-val" style="color:#60a5fa">28%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <div class="section-title">Why <span style="color:var(--gold)">WealthWave?</span></div>
+  <div class="section-sub">Everything you need to master your finances in one place</div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Investing Strategies</h3>
+      <p>Learn proven stock, ETF, and crypto investment strategies that generate real long-term returns.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Passive Income</h3>
+      <p>Discover multiple income streams that work while you sleep — dividends, rentals, digital products.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Wealth Protection</h3>
+      <p>Protect what you've built with smart tax strategies, insurance, and diversification tips.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div class="section" id="articles">
+  <div class="section-title">Latest <span style="color:var(--teal)">Articles</span></div>
+  <div class="section-sub">Fresh financial insights published every week</div>
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-img">📊</div>
+      <div class="article-body">
+        <span class="article-tag">Investing</span>
+        <h3>How to Build a $1M Portfolio Starting with $500</h3>
+        <p>Step-by-step guide to growing wealth through consistent investing, regardless of your starting point.</p>
+        <div class="article-meta"><span>Jun 5, 2026</span><span>8 min read</span></div>
+        <a href="article1.html" style="display:inline-block;margin-top:12px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">Read Now →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">💎</div>
+      <div class="article-body">
+        <span class="article-tag">Passive Income</span>
+        <h3>7 Dividend Stocks That Pay You Every Month</h3>
+        <p>These reliable dividend payers can create a steady income stream you can count on month after month.</p>
+        <div class="article-meta"><span>Jun 3, 2026</span><span>6 min read</span></div>
+        <a href="article2.html" style="display:inline-block;margin-top:12px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">Read Now →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">🏠</div>
+      <div class="article-body">
+        <span class="article-tag">Real Estate</span>
+        <h3>Real Estate Investing Without Buying Property</h3>
+        <p>REITs and real estate crowdfunding let you invest in property with as little as $10.</p>
+        <div class="article-meta"><span>Jun 1, 2026</span><span>5 min read</span></div>
+        <a href="article3.html" style="display:inline-block;margin-top:12px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">Read Now →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section" id="enroll">
+  <h2>Start Your <span style="color:var(--gold)">Wealth Journey</span> Today</h2>
+  <p>Join 280,000+ readers getting free weekly finance tips, strategies and market insights.</p>
+  <div class="email-form">
+    <input type="email" class="email-input" placeholder="Enter your email address">
+    <button class="btn-cta">Get Free Access 🚀</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Wealth<span>Wave</span></div>
+  <p>© 2026 WealthWave. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+    <a href="#">Advertise</a>
+  </div>
+</footer>
+
+</body>
+</html>
